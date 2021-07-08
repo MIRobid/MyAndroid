@@ -4,7 +4,6 @@ import android.view.View
 import com.example.android.myandroid.R
 import com.example.android.myandroid.CountersModel
 import com.example.android.myandroid.MainView
-import com.example.android.myandroid.databinding.ActivityMainBinding
 
 
 class MainPresenter(val view: MainView) {
