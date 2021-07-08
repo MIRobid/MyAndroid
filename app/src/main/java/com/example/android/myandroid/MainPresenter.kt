@@ -1,27 +1,32 @@
 package com.example.android.myandroid
 
+import android.view.View
 import com.example.android.myandroid.R
 import com.example.android.myandroid.CountersModel
 import com.example.android.myandroid.MainView
+import com.example.android.myandroid.databinding.ActivityMainBinding
 
 
 class MainPresenter(val view: MainView) {
 
     val model = CountersModel()
+    private var vb: ActivityMainBinding? = null
 
     fun counterClick(id: Int){
         when(id){
-            R.id.btn_counter1 -> {
+            vb?.btnCounter1?.id -> {
                 val nextValue = model.next(0)
-                view.setButtonText(0, nextValue.toString())
+                view.setButtonText(0,nextValue.toString())
             }
-            R.id.btn_counter2 -> {
+
+            vb?.btnCounter2?.id -> {
                 val nextValue = model.next(1)
-                view.setButtonText(1, nextValue.toString())
+                view.setButtonText(1,nextValue.toString())
             }
-            R.id.btn_counter3 -> {
+
+            vb?.btnCounter3?.id -> {
                 val nextValue = model.next(2)
-                view.setButtonText(2, nextValue.toString())
+                view.setButtonText(2,nextValue.toString())
             }
         }
     }
