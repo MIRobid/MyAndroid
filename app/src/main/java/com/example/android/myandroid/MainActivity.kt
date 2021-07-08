@@ -18,7 +18,11 @@ class MainActivity : AppCompatActivity(), MainView {
         setContentView(vb?.root)
 
         val listener = View.OnClickListener {
-            presenter.counterClick(it.id)
+            when(it.id) {
+                vb?.btnCounter1?.id -> presenter.counterClick1(it.id)
+                vb?.btnCounter2?.id -> presenter.counterClick2(it.id)
+                vb?.btnCounter3?.id -> presenter.counterClick3(it.id)
+            }
         }
 
         vb?.btnCounter1?.setOnClickListener(listener)
@@ -27,12 +31,14 @@ class MainActivity : AppCompatActivity(), MainView {
 
     }
 
-    override fun setButtonText(index: Int, text: String) {
-        when(index){
-            0 -> vb?.btnCounter1?.text = text
-            1 -> vb?.btnCounter2?.text = text
-            2 -> vb?.btnCounter3?.text = text
+    override fun setButtonText1(index: Int, text: String) {
+        vb?.btnCounter1?.text = text
         }
+    override fun setButtonText2(index: Int, text: String) {
+        vb?.btnCounter2?.text = text
+    }
+    override fun setButtonText3(index: Int, text: String) {
+        vb?.btnCounter3?.text = text
     }
 
-}
+    }
